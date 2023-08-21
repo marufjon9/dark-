@@ -1,0 +1,59 @@
+.header {
+  background-color: var(--secondary-bg-color);
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.06);
+}
+.container {
+}
+.header__wrapper {
+  padding: 30px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header__title {
+  font-size: 10px;
+  font-weight: 800;
+  line-height: 20px; /* 142.857% */
+}
+.header__theme {
+  font-size: 9px;
+  font-weight: 600;
+  line-height: normal;
+  border: 1px solid transparent;
+  background-color: transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  color: var(--main-text-color);
+  &::before {
+    content: "";
+    background-image: url("/img/moon.svg");
+    width: 16px;
+    height: 16px;
+    background-position: top;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}
+
+@media only screen and (min-width: 375px) {
+  .header__title {
+    font-size: 14px;
+  }
+  .header__theme {
+    font-size: 12px;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .header__title {
+    font-size: 24px;
+  }
+  .header__theme {
+    font-size: 16px;
+    &::before {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}

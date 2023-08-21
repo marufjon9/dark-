@@ -1,0 +1,26 @@
+:root {
+  --main-text-color: #111517;
+  --secondary-text-color: #c4c4c4;
+  --main-bg-color: #fafafa;
+  --secondary-bg-color: #fff;
+}
+.dark {
+  --main-text-color: #fff;
+  --secondary-text-color: #fff;
+  --main-bg-color: #202c36;
+  --secondary-bg-color: #2b3844;
+}
+
+.dark .header__theme {
+  &::before {
+    background-image: url("/img/moon-dark.svg");
+  }
+}
+
+.dark .form__input {
+  background-image: url("/img/search-dark.svg");
+}
+
+.dark .form__select {
+  background-image: url("/img/down-arrow-dark.svg");
+}
