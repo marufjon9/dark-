@@ -1,22 +1,35 @@
 const themeBtn = document.querySelector(".header__theme");
 const list = document.querySelector(".main__list");
 
-// themeBtn.addEventListener("click", () => {
-//   document.body.classList.toggle("dark");
-// });
+const URL = "https://restcountries.com/v3.1/all";
+
+async function getFlags(URL) {
+  try {
+    const res = await fetch(URL);
+    const data = await res.json();
+    renderCountries(data);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+getFlags(URL);
 
 const renderCountries = (array) => {
   array.forEach((element) => {
     const li = document.createElement("li");
     li.classList.add("main__item");
 
+    const imgWrapper = document.createElement("div");
+    imgWrapper.classList.add("img-wrapper");
+
     const img = document.createElement("img");
-    img.setAttribute("src", `/img/${element.img}`);
+    img.setAttribute("src", `${element.flags.png}`);
     img.classList.add("item__img");
 
     const h3 = document.createElement("h3");
     h3.classList.add("item__title");
-    h3.textContent = element.name;
+    h3.textContent = element.name.common;
 
     const div = document.createElement("div");
     div.classList.add("item__textbox");
@@ -33,13 +46,15 @@ const renderCountries = (array) => {
     capital.classList = document.createElement("p");
     capital.innerHTML = `<strong>Capital:</strong> ${element.capital}`;
 
+    imgWrapper.append(img);
+
     div.append(population, region, capital);
-    li.append(img, h3, div);
+    li.append(imgWrapper, h3, div);
     list.append(li);
   });
 };
 
-renderCountries(countries);
+// renderCountries(countries);
 
 if (localStorage.getItem("mode") == "dark") {
   darkMode();

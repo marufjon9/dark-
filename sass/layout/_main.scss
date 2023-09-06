@@ -97,11 +97,24 @@
     transform: scale(1.1);
   }
 }
+.header__theme {
+  cursor: pointer;
+}
 .item__textbox {
   padding: 16px 24px 46px 24px;
   display: flex;
   flex-direction: column;
   gap: 8px;
+}
+.img-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.item__img {
+  width: 100%;
+  max-height: 160px;
+  min-height: 160px;
 }
 .item__title {
   margin-top: 24px;
