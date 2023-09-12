@@ -104,6 +104,9 @@ function renderSingle() {
   if (inputValue && select) {
     getFlags(`https://restcountries.com/v3.1/name/${inputValue}`);
   }
+  if (inputValue == "") {
+    getFlags(URL);
+  }
 }
 
 function single() {
