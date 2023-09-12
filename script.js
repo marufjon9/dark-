@@ -1,5 +1,8 @@
 const themeBtn = document.querySelector(".header__theme");
 const list = document.querySelector(".main__list");
+const formInput = document.querySelector(".form__input");
+const form = document.querySelector(".main__form");
+const select = document.querySelector(".form__select");
 
 const URL = "https://restcountries.com/v3.1/all";
 
@@ -16,6 +19,7 @@ async function getFlags(URL) {
 getFlags(URL);
 
 const renderCountries = (array) => {
+  list.innerHTML = "";
   array.forEach((element) => {
     const li = document.createElement("li");
     li.classList.add("main__item");
@@ -82,4 +86,30 @@ function noDark() {
   document.body.classList.remove("dark");
   localStorage.setItem("mode", "light");
   themeBtn.textContent = "Dark Mode";
+}
+
+// form.addEventListener("", function (e) {
+//   e.preventDefault();
+
+//   const inputValue = formInput.value.trim();
+
+//   if (inputValue && select) {
+//     getFlags(`https://restcountries.com/v3.1/name/${inputValue}`);
+//   }
+// });
+
+function renderSingle() {
+  const inputValue = formInput.value.trim();
+
+  if (inputValue && select) {
+    getFlags(`https://restcountries.com/v3.1/name/${inputValue}`);
+  }
+}
+
+function single() {
+  const selectValue = select.value;
+
+  if (selectValue) {
+    getFlags(`https://restcountries.com/v3.1/region/${selectValue}`);
+  }
 }

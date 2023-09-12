@@ -30,13 +30,19 @@
           <div class="main__top">
             <form class="main__form form">
               <input
+                onkeyup="renderSingle()"
                 class="form__input"
                 type="text"
                 placeholder="Search for a country…"
                 autocomplete="off"
                 required
               />
-              <select class="form__select" name="continents" id="">
+              <select
+                class="form__select"
+                name="continents"
+                id=""
+                onclick="single()"
+              >
                 <option class="form__option" value="" disabled selected>
                   Filter by Region
                 </option>
